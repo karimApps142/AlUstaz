@@ -1,7 +1,8 @@
 import React, {useState, useRef} from 'react';
-import {View, StyleSheet, FlatList, Animated} from 'react-native';
-import {OnboardingItems, Paginator} from '../components';
+import {View, StyleSheet, FlatList, Animated, StatusBar} from 'react-native';
+import {NextButton, OnboardingItems, Paginator} from '../components';
 import slides from '../constants/onboardingData';
+import {COLORS} from '../constants/theme';
 
 export const OnboardingScreen = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -14,8 +15,18 @@ export const OnboardingScreen = () => {
 
   const viewConfig = useRef({viewAreaCoveragePercentThreshold: 10}).current;
 
+  const scrollTo = () => {
+    if (currentIndex < slides.length - 1) {
+      slideRef.current.scrollToIndex({index: currentIndex + 1});
+    } else {
+      console.log('last item');
+    }
+  };
+
   return (
     <View style={styles.container}>
+      <StatusBar hidden translucent={true} />
+
       <View style={{flex: 3}}>
         <FlatList
           data={slides}
@@ -36,10 +47,19 @@ export const OnboardingScreen = () => {
         />
       </View>
       <Paginator data={slides} scrollX={scrollX} />
+      <NextButton
+        scrollTo={scrollTo}
+        percentage={(currentIndex + 1) * (100 / slides.length)}
+      />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {flex: 1, alignItems: 'center', justifyContent: 'center'},
+  container: {
+    flex: 1,
+    backgroundColor: COLORS.white,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });

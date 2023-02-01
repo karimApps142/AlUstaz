@@ -11,6 +11,7 @@ export const BaseIcon = ({icon, size, color, orgColor, otherStyles}) => {
           height: size || 20,
           width: size || 20,
           tintColor: color || orgColor || COLORS.black,
+          transform: [{rotate: '180deg'}],
         },
         otherStyles,
       ]}

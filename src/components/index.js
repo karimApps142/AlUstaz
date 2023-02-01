@@ -5,3 +5,4 @@ export * from './LectureDetailsScreen/AudioPlayer';
 export * from './NewLectureScreen/AudioRecorder';
 export * from './OnboardingScreen/OnboardingItems';
 export * from './OnboardingScreen/Paginator';
+export * from './OnboardingScreen/NextButton';
