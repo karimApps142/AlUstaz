@@ -4,7 +4,11 @@ import {COLORS, SIZES} from '../../constants/theme';
 
 export const Paginator = ({data, scrollX}) => {
   return (
-    <View style={{flexDirection: 'row-reverse', height: 64}}>
+    <View
+      style={{
+        flexDirection: 'row-reverse',
+        height: 64,
+      }}>
       {data.map((_, i) => {
         const inputRange = [
           (i - 1) * SIZES.width,
@@ -14,7 +18,7 @@ export const Paginator = ({data, scrollX}) => {
 
         const dotWidth = scrollX.interpolate({
           inputRange,
-          outputRange: [10, 20, 10],
+          outputRange: [8, 20, 8],
           extrapolate: 'clamp',
         });
 
@@ -37,9 +41,9 @@ export const Paginator = ({data, scrollX}) => {
 
 const styles = StyleSheet.create({
   dot: {
-    height: 10,
-    borderRadius: 5,
+    height: 8,
+    borderRadius: 10,
     backgroundColor: COLORS.primary,
-    marginHorizontal: 8,
+    marginHorizontal: 5,
   },
 });

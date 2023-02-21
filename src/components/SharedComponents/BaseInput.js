@@ -12,8 +12,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     overflow: 'hidden',
     backgroundColor: COLORS.lightGray,
-    borderWidth: 1,
-    borderColor: COLORS.gray,
+    // borderWidth: 1,
+    // borderColor: COLORS.gray,
   },
   input: {
     ...FONTS.body4,
@@ -48,7 +48,11 @@ export const BaseInput = ({
     <View style={[styles.container, otherStyles]}>
       {leftIcon && (
         <View style={styles.leftIconContainer}>
-          <BaseIcon icon={leftIcon} color={COLORS.gray} size={leftIconSize} />
+          <BaseIcon
+            icon={leftIcon}
+            color={COLORS.primary}
+            size={leftIconSize}
+          />
         </View>
       )}
       <TextInput
@@ -65,7 +69,7 @@ export const BaseInput = ({
           onPress={onPressIcon}
           activeOpacity={1}
           style={styles.iconContainer}>
-          <BaseIcon icon={icon} color={COLORS.gray} size={16} />
+          <BaseIcon icon={icon} color={COLORS.gray} size={20} />
         </TouchableOpacity>
       )}
     </View>

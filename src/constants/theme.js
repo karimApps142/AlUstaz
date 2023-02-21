@@ -10,7 +10,7 @@ const SAFE_BOTTOM =
   }) ?? 0;
 
 export const COLORS = {
-  primary: '#1F32FA',
+  primary: '#2AABE7',
   primary_second: '#1F32FA',
   primary_third: '#BD5FA3',
   drawer_bg: '#1F32FA',

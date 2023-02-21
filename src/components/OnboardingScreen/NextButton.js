@@ -7,7 +7,7 @@ import {COLORS} from '../../constants/theme';
 import {BaseIcon} from '../SharedComponents/BaseIcon';
 
 export const NextButton = ({percentage, scrollTo}) => {
-  const size = 128;
+  const size = 100;
   const strokWidth = 2;
   const center = size / 2;
   const radius = size / 2 - strokWidth / 2;
@@ -72,7 +72,11 @@ export const NextButton = ({percentage, scrollTo}) => {
         onPress={scrollTo}
         activeOpacity={0.8}
         style={styles.button}>
-        <BaseIcon icon={icons.rightArrow} color={COLORS.white} />
+        <BaseIcon
+          icon={icons.rightArrow}
+          color={COLORS.white}
+          otherStyles={{transform: [{rotate: '180deg'}]}}
+        />
       </TouchableOpacity>
     </View>
   );

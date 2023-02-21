@@ -8,15 +8,16 @@ const styles = {
     width: '100%',
     height: 45,
     alignItems: 'center',
-    flexDirection: 'row',
     marginTop: 10,
     borderRadius: 50,
+    flexDirection: 'row-reverse',
   },
   text: {
     ...FONTS.h3,
     color: 'white',
     textAlign: 'center',
     flex: 1,
+    fontWeight: '700',
   },
   activityIndicator: {
     position: 'absolute',

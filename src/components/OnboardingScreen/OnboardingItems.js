@@ -5,7 +5,7 @@ import {COLORS, FONTS, SIZES} from '../../constants/theme';
 export const OnboardingItems = ({item}) => {
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={item.image} />
+      <Image style={styles.image} resizeMode={'contain'} source={item.image} />
       <View style={styles.botttomContainer}>
         <Text style={styles.title}>{item.title}</Text>
         <Text style={styles.description}>{item.description}</Text>
@@ -23,19 +23,23 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 0.7,
-    resizeMode: 'contain',
     width: SIZES.width,
     justifyContent: 'center',
+    marginBottom: 30,
+    marginTop: 30,
   },
   botttomContainer: {flex: 0.3},
   title: {
-    ...FONTS.h2,
+    ...FONTS.h1,
+    fontWeight: '700',
     color: COLORS.primary,
     textAlign: 'center',
     marginBottom: 10,
   },
   description: {
-    ...FONTS.body4,
+    ...FONTS.body3,
+    fontSize: 20,
+    lineHeight: 25,
     color: COLORS.gray,
     textAlign: 'center',
     paddingHorizontal: 64,

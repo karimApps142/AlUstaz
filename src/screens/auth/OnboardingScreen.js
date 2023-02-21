@@ -1,10 +1,10 @@
 import React, {useState, useRef} from 'react';
 import {View, StyleSheet, FlatList, Animated, StatusBar} from 'react-native';
-import {NextButton, OnboardingItems, Paginator} from '../components';
-import slides from '../constants/onboardingData';
-import {COLORS} from '../constants/theme';
+import {NextButton, OnboardingItems, Paginator} from '../../components';
+import slides from '../../constants/onboardingData';
+import {COLORS} from '../../constants/theme';
 
-export const OnboardingScreen = () => {
+export const OnboardingScreen = ({navigation}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollX = useRef(new Animated.Value(0)).current;
   const slideRef = useRef(null);
@@ -19,7 +19,7 @@ export const OnboardingScreen = () => {
     if (currentIndex < slides.length - 1) {
       slideRef.current.scrollToIndex({index: currentIndex + 1});
     } else {
-      console.log('last item');
+      navigation.navigate('login');
     }
   };
 
@@ -46,11 +46,11 @@ export const OnboardingScreen = () => {
           ref={slideRef}
         />
       </View>
-      <Paginator data={slides} scrollX={scrollX} />
       <NextButton
         scrollTo={scrollTo}
         percentage={(currentIndex + 1) * (100 / slides.length)}
       />
+      <Paginator data={slides} scrollX={scrollX} />
     </View>
   );
 };
